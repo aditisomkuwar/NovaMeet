@@ -1,0 +1,168 @@
+.landingPageContainer {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #111827 0%, #1F2937 60%, #8B5CF6 100%);
+  color: #F9FAFB;
+}
+
+.landingPageContainer nav {
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landingPageContainer nav h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #F9FAFB;
+}
+
+.landingPageContainer nav .navlist {
+  display: flex;
+  gap: 1.6rem;
+  cursor: pointer;
+  color: #F9FAFB;
+}
+
+.landingPageContainer nav .navlist p:hover {
+  color: #8B5CF6;
+  transition: 0.3s;
+}
+
+.landingMainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  height: 80vh;
+  gap: 50px;
+}
+
+.landingMainContainer > div:nth-child(1) {
+  flex: 1;
+  color: #F9FAFB;
+}
+
+.landingMainContainer > div:nth-child(1) h1 {
+  font-size: 3.8rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.landingMainContainer > div:nth-child(1) p {
+  font-size: 1.2rem;
+  color: #D1D5DB;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.landingMainContainer > div:nth-child(1) div[role='button'] {
+  background: #A855F7;
+  width: fit-content;
+  padding: 14px 28px;
+  border-radius: 12px;
+  margin-top: 2rem;
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+  transition: all 0.3s ease;
+}
+
+.landingMainContainer > div:nth-child(1) div[role='button']:hover {
+  background: #9333EA;
+  transform: translateY(-3px) scale(1.03);
+}
+
+.landingMainContainer > div:nth-child(1) div[role='button'] a {
+  text-decoration: none;
+  color: #F9FAFB;
+  font-size: 1.7rem;
+}
+
+.landingMainContainer > div:nth-child(2) img {
+  height: 70vh;
+  width: auto;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 20px;
+  text-align: center;
+  background: #111827;
+}
+
+.meetContainer {
+  display: flex;
+  padding-inline: 20px;
+  height: 80vh;
+  gap: 10vw;
+  justify-content: center;
+  background: #111827;
+}
+
+.leftPanel {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: #F9FAFB;
+}
+
+.rightPanel {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.rightPanel > img {
+  width: 32vw;
+  height: auto;
+  border-radius: 25px;
+  box-shadow: 0 0 50px rgba(139, 92, 246, 0.5);
+  transition: all 0.4s ease;
+}
+
+.rightPanel > img:hover {
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 0 80px rgba(139, 92, 246, 0.8);
+}
+
+.rightPanel > img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 60px rgba(139, 92, 246, 0.7);
+}
+
+.landingMainContainer a {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.navHeader h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.navlist p {
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.navlist p:hover {
+  color: #8B5CF6;
+  transform: translateY(-2px);
+}
+
+.navlist div[role='button'] {
+  background: #A855F7;
+  color: #F9FAFB;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.navlist div[role='button']:hover {
+  background: #9333EA;
+  transform: scale(1.05);
+}
