@@ -71,42 +71,152 @@ export default function Authentication() {
             <Grid container component="main" sx={{ height: '100vh' }}>
                 <CssBaseline />
                 <Grid
-                    item
-                    xs={false}
-                    sm={4}
-                    md={7}
-                    sx={{
-                        backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundColor: (t) =>
-                            t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                />
-                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+    item
+    xs={false}
+    sm={4}
+    md={7}
+    sx={{
+        background: "linear-gradient(135deg, #111827 0%, #1F2937 60%, #8B5CF6 100%)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        color: "#fff",
+        textAlign: "center",
+        p: 4,
+    }}
+>
+    <img
+        src="/mobile.png"
+        alt="NovaMeet"
+        style={{
+            width: "65%",
+            maxWidth: "420px",
+            marginBottom: "20px",
+        }}
+    />
+
+    <Typography variant="h3" sx={{ fontWeight: "bold", color: "#F9FAFB" }}>
+        NovaMeet
+    </Typography>
+
+    <Typography
+        variant="h6"
+        sx={{ mt: 2, color: "#D1D5DB", maxWidth: "450px" }}
+    >
+        Connect, collaborate and communicate securely from anywhere.
+    </Typography>
+</Grid>
+               <Grid
+    item
+    xs={12}
+    sm={8}
+    md={5}
+    component={Paper}
+    elevation={10}
+    sx={{
+        borderTopLeftRadius: "30px",
+        borderBottomLeftRadius: "30px",
+        background: "#F9FAFB",
+    }}
+>
                     <Box
-                        sx={{
-                            my: 8,
-                            mx: 4,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                        }}
-                    >
-                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+    sx={{
+        my: 6,
+        mx: 4,
+        p: 4,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        borderRadius: "20px",
+        background: "#FFFFFF",
+        boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
+    }}
+>
+                       <Avatar
+    sx={{
+        m: 1,
+        bgcolor: "#8B5CF6",
+        width: 60,
+        height: 60,
+    }}
+>
                             <LockOutlinedIcon />
                         </Avatar>
+<Typography
+    variant="h4"
+    fontWeight="bold"
+    sx={{ mt: 2, color: "#111827" }}
+>
+    {formState === 0 ? "Welcome Back 👋" : "Create Account"}
+</Typography>
 
+<Typography
+    sx={{
+        color: "#6B7280",
+        mb: 3,
+        mt: 1,
+    }}
+>
+    {formState === 0
+        ? "Login to continue your meetings."
+        : "Join NovaMeet in just a few seconds."}
+</Typography>
 
-                        <div>
-                            <Button variant={formState === 0 ? "contained" : ""} onClick={() => { setFormState(0) }}>
-                                Sign In
-                            </Button>
-                            <Button variant={formState === 1 ? "contained" : ""} onClick={() => { setFormState(1) }}>
-                                Sign Up
-                            </Button>
-                        </div>
+                       <div
+    style={{
+        display: "flex",
+        gap: "12px",
+        marginBottom: "20px",
+        marginTop: "10px",
+    }}
+>
+    <Button
+        variant={formState === 0 ? "contained" : "outlined"}
+        onClick={() => setFormState(0)}
+        sx={{
+            borderRadius: "10px",
+            textTransform: "none",
+            fontWeight: "bold",
+            px: 4,
+            background:
+                formState === 0
+                    ? "linear-gradient(90deg,#8B5CF6,#A855F7)"
+                    : "transparent",
+            color: formState === 0 ? "#fff" : "#8B5CF6",
+            borderColor: "#8B5CF6",
+            "&:hover": {
+                background: "#9333EA",
+                color: "#fff",
+            },
+        }}
+    >
+        Sign In
+    </Button>
+
+    <Button
+        variant={formState === 1 ? "contained" : "outlined"}
+        onClick={() => setFormState(1)}
+        sx={{
+            borderRadius: "10px",
+            textTransform: "none",
+            fontWeight: "bold",
+            px: 4,
+            background:
+                formState === 1
+                    ? "linear-gradient(90deg,#8B5CF6,#A855F7)"
+                    : "transparent",
+            color: formState === 1 ? "#fff" : "#8B5CF6",
+            borderColor: "#8B5CF6",
+            "&:hover": {
+                background: "#9333EA",
+                color: "#fff",
+            },
+        }}
+    >
+        Sign Up
+    </Button>
+</div>
 
                         <Box component="form" noValidate sx={{ mt: 1 }}>
                             {formState === 1 ? <TextField
@@ -119,6 +229,27 @@ export default function Authentication() {
                                 value={name}
                                 autoFocus
                                 onChange={(e) => setName(e.target.value)}
+                                                     sx={{
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "12px",
+    backgroundColor: "#FAFAFA",
+    transition: "0.3s",
+
+    "& fieldset": {
+      borderColor: "#D1D5DB",
+    },
+
+    "&:hover fieldset": {
+      borderColor: "#8B5CF6",
+    },
+
+    "&.Mui-focused fieldset": {
+      borderColor: "#8B5CF6",
+      borderWidth: "2px",
+      boxShadow: "0 0 10px rgba(139,92,246,0.20)",
+    },
+  },
+}}
                             /> : <></>}
 
                             <TextField
@@ -131,7 +262,27 @@ export default function Authentication() {
                                 value={username}
                                 autoFocus
                                 onChange={(e) => setUsername(e.target.value)}
+                                sx={{
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "12px",
+    backgroundColor: "#FAFAFA",
+    transition: "0.3s",
 
+    "& fieldset": {
+      borderColor: "#D1D5DB",
+    },
+
+    "&:hover fieldset": {
+      borderColor: "#8B5CF6",
+    },
+
+    "&.Mui-focused fieldset": {
+      borderColor: "#8B5CF6",
+      borderWidth: "2px",
+      boxShadow: "0 0 10px rgba(139,92,246,0.20)",
+    },
+  },
+}}
                             />
                             <TextField
                                 margin="normal"
@@ -144,17 +295,55 @@ export default function Authentication() {
                                 onChange={(e) => setPassword(e.target.value)}
 
                                 id="password"
+                                sx={{
+  "& .MuiOutlinedInput-root": {
+    borderRadius: "12px",
+    backgroundColor: "#FAFAFA",
+    transition: "0.3s",
+
+    "& fieldset": {
+      borderColor: "#D1D5DB",
+    },
+
+    "&:hover fieldset": {
+      borderColor: "#8B5CF6",
+    },
+
+    "&.Mui-focused fieldset": {
+      borderColor: "#8B5CF6",
+      borderWidth: "2px",
+      boxShadow: "0 0 10px rgba(139,92,246,0.20)",
+    },
+  },
+}}
                             />
 
                             <p style={{ color: "red" }}>{error}</p>
 
-                            <Button
-                                type="button"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
-                                onClick={handleAuth}
-                            >
+  <Button
+    type="button"
+    fullWidth
+    variant="contained"
+    onClick={handleAuth}
+    sx={{
+        mt: 3,
+        mb: 2,
+        py: 1.6,
+        borderRadius: "14px",
+        fontWeight: "bold",
+        fontSize: "16px",
+        textTransform: "none",
+        background: "linear-gradient(90deg, #8B5CF6, #A855F7)",
+        boxShadow: "0 8px 20px rgba(139,92,246,0.35)",
+        transition: "0.3s",
+        "&:hover": {
+            background: "linear-gradient(90deg, #7C3AED, #9333EA)",
+            transform: "translateY(-3px)",
+            boxShadow: "0 12px 28px rgba(139,92,246,0.45)"
+        }
+    }}
+>
+                            
                                 {formState === 0 ? "Login " : "Register"}
                             </Button>
 
