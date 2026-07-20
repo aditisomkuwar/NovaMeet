@@ -3,9 +3,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
- 
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
 
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -39,12 +41,17 @@ export default function Authentication() {
     const [formState, setFormState] = React.useState(0);
 
     const [open, setOpen] = React.useState(false)
+    const [showPassword, setShowPassword] = React.useState(false);
+    const [loading, setLoading] = React.useState(false);
 
 
     const { handleRegister, handleLogin } = React.useContext(AuthContext);
 
     let handleAuth = async () => {
         try {
+          
+            setLoading(true);
+
             if (formState === 0) {
 
                 let result = await handleLogin(username, password)
@@ -61,11 +68,16 @@ export default function Authentication() {
                 setFormState(0)
                 setPassword("")
             }
+               
+                 setLoading(false);
+                 
         } catch (err) {
 
             console.log(err);
             let message = (err.response.data.message);
             setError(message);
+
+            setLoading(false);
         }
     }
 
@@ -309,9 +321,16 @@ export default function Authentication() {
             <LockOutlinedIcon sx={{ color: "#8B5CF6" }} />
         </InputAdornment>
     ),
+      endAdornment: (
+    <IconButton
+    onClick={() => setShowPassword(!showPassword)}
+>
+    {showPassword ? <VisibilityOff /> : <Visibility />}
+</IconButton>
+),
 }}
                                 value={password}
-                                type="password"
+                              type={showPassword ? "text" : "password"}
                                 onChange={(e) => setPassword(e.target.value)}
 
                                 id="password"
@@ -364,7 +383,9 @@ export default function Authentication() {
     }}
 >
                             
-                                {formState === 0 ? "Login " : "Register"}
+                                {loading
+    ? (formState === 0 ? "Logging in..." : "Creating Account...")
+    : (formState === 0 ? "Login" : "Register")}
                             </Button>
 
                         </Box>
