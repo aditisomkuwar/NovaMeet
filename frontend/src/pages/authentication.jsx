@@ -3,6 +3,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
+ 
+import InputAdornment from '@mui/material/InputAdornment';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
@@ -258,6 +262,14 @@ export default function Authentication() {
                                 fullWidth
                                 id="username"
                                 label="Username"
+
+                                InputProps={{
+    startAdornment: (
+        <InputAdornment position="start">
+            <PersonOutlineIcon sx={{ color: "#8B5CF6" }} />
+        </InputAdornment>
+    ),
+}}
                                 name="username"
                                 value={username}
                                 autoFocus
@@ -290,6 +302,14 @@ export default function Authentication() {
                                 fullWidth
                                 name="password"
                                 label="Password"
+
+                                InputProps={{
+    startAdornment: (
+        <InputAdornment position="start">
+            <LockOutlinedIcon sx={{ color: "#8B5CF6" }} />
+        </InputAdornment>
+    ),
+}}
                                 value={password}
                                 type="password"
                                 onChange={(e) => setPassword(e.target.value)}
