@@ -19,7 +19,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { AuthContext } from '../contexts/AuthContext';
-import { Snackbar } from '@mui/material';
+import { Snackbar, Alert } from '@mui/material';
 
 
 
@@ -36,6 +36,7 @@ export default function Authentication() {
     const [name, setName] = React.useState();
     const [error, setError] = React.useState();
     const [message, setMessage] = React.useState();
+    const [alertType, setAlertType] = React.useState("success");
 
 
     const [formState, setFormState] = React.useState(0);
@@ -63,6 +64,7 @@ export default function Authentication() {
                 console.log(result);
                 setUsername("");
                 setMessage(result);
+                setAlertType("success");
                 setOpen(true);
                 setError("")
                 setFormState(0)
@@ -70,12 +72,13 @@ export default function Authentication() {
             }
                
                  setLoading(false);
-                 
+
         } catch (err) {
 
             console.log(err);
             let message = (err.response.data.message);
             setError(message);
+            setAlertType("error");
 
             setLoading(false);
         }
@@ -394,11 +397,20 @@ export default function Authentication() {
             </Grid>
 
             <Snackbar
-
-                open={open}
-                autoHideDuration={4000}
-                message={message}
-            />
+    open={open}
+    autoHideDuration={4000}
+    onClose={() => setOpen(false)}
+    anchorOrigin={{ vertical: "top", horizontal: "center" }}
+>
+    <Alert
+        onClose={() => setOpen(false)}
+        severity={alertType}
+        variant="filled"
+        sx={{ width: "100%" }}
+    >
+        {message}
+    </Alert>
+</Snackbar>
 
         </ThemeProvider>
     );
