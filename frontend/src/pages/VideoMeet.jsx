@@ -447,21 +447,102 @@ export default function VideoMeetComponent() {
 
 
     return (
-        <div>
+        <div
+    style={{
+        minHeight: "100vh",
+        background: "#111827",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+    }}
+>
 
             {askForUsername === true ?
 
                 <div>
 
 
-                    <h2>Enter into Lobby </h2>
-                    <TextField id="outlined-basic" label="Username" value={username} onChange={e => setUsername(e.target.value)} variant="outlined" />
-                    <Button variant="contained" onClick={connect}>Connect</Button>
+                    <h1
+    style={{
+        color: "#F9FAFB",
+        fontSize: "42px",
+        fontWeight: "700",
+        marginBottom: "15px",
+    }}
+>
+    Welcome to NovaMeet 👋
+</h1>
+
+<p
+    style={{
+        color: "#D1D5DB",
+        fontSize: "18px",
+        marginBottom: "25px",
+    }}
+>
+    Enter your name to join the meeting.
+</p>
+
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
+
+    <TextField
+        id="outlined-basic"
+        label="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        variant="outlined"
+        sx={{
+            width: "320px",
+            "& .MuiOutlinedInput-root": {
+                borderRadius: "12px",
+                backgroundColor: "#FAFAFA",
+            },
+        }}
+    />
+
+    <Button
+        variant="contained"
+        onClick={connect}
+        sx={{
+            px: 4,
+            py: 1.3,
+            borderRadius: "12px",
+            textTransform: "none",
+            fontWeight: "bold",
+            background: "linear-gradient(90deg, #8B5CF6, #A855F7)",
+            boxShadow: "0 8px 20px rgba(139,92,246,0.35)",
+            "&:hover": {
+                background: "linear-gradient(90deg, #7C3AED, #9333EA)",
+            },
+        }}
+    >
+        Connect
+    </Button>
+
+</div>      
 
 
-                    <div>
-                        <video ref={localVideoref} autoPlay muted></video>
-                    </div>
+                   <div
+    style={{
+        marginTop: "30px",
+        width: "420px",
+        borderRadius: "20px",
+        overflow: "hidden",
+        border: "2px solid #374151",
+        boxShadow: "0 12px 30px rgba(139,92,246,0.35)",
+        background: "#1F2937",
+    }}
+>
+    <video
+        ref={localVideoref}
+        autoPlay
+        muted
+        style={{
+            width: "100%",
+            display: "block",
+        }}
+    ></video>
+</div>
 
                 </div> :
 
