@@ -457,11 +457,20 @@ export default function VideoMeetComponent() {
     }}
 >
 
-            {askForUsername === true ?
+           {askForUsername === true ?
 
-                <div>
+    <div
+        style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+            maxWidth: "1200px",
+            gap: "60px",
+        }}
+    >
 
-
+<div style={{ flex: 1 }}>
                     <h1
     style={{
         color: "#F9FAFB",
@@ -544,7 +553,9 @@ export default function VideoMeetComponent() {
     ></video>
 </div>
 
-                </div> :
+                </div>
+
+            </div> :
 
 
                 <div className={styles.meetVideoContainer}>
